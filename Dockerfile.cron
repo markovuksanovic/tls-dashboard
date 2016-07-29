@@ -1,9 +1,6 @@
 FROM alpine
 
-RUN apk --update add nodejs
-
-COPY node_app /root/tls-dashboard/node_app
-WORKDIR /root/tls-dashboard
+RUN apk --update add docker
 
 COPY tasks/renew-cert-info /etc/periodic/15min/renew-cert-info
 

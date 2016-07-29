@@ -3,6 +3,7 @@ services:
     "tls-dashboard":
         build: .
         image: tls-dashboard
+        container_name: tls-dashboard
         ports:
             - "8080:8080"
         volumes:
@@ -13,6 +14,8 @@ services:
             context: .
             dockerfile: Dockerfile.cron
         image: tls-dashboard-cron
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
         volumes_from:
             - "tls-dashboard"
         environment:

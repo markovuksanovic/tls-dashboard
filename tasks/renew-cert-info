@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cd /root/tls-dashboard && node /root/tls-dashboard/node_app/get_cert_info.js
+docker run -e TLS_DASHBOARD_HOSTS=${TLS_DASHBOARD_HOSTS} --volumes-from tls-dashboard tls-dashboard node node_app/get_cert_info.js
