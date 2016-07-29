@@ -1,0 +1,19 @@
+version: '2'
+services:
+    "tls-dashboard":
+        build: .
+        image: tls-dashboard
+        ports:
+            - "8080:8080"
+        volumes:
+            - /root/tls-dashboard/web_service
+
+    "tls-dashboard-cron":
+        build:
+            context: .
+            dockerfile: Dockerfile.cron
+        image: tls-dashboard-cron
+        volumes_from:
+            - "tls-dashboard"
+        environment:
+            - TLS_DASHBOARD_HOSTS=${TLS_DASHBOARD_HOSTS}

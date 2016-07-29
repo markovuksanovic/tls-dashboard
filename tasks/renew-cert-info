@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd /root/tls-dashboard && node /root/tls-dashboard/node_app/get_cert_info.js

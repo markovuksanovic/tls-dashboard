@@ -1,4 +1,4 @@
-var hosts = [
+var hosts =  process.env.TLS_DASHBOARD_HOSTS ? process.env.TLS_DASHBOARD_HOSTS.split(',') : [
   'www.google.com',
   'www.twitter.com',
   'sha256.badssl.com',

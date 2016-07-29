@@ -1,0 +1,10 @@
+FROM alpine
+
+RUN apk --update add nodejs
+
+COPY node_app /root/tls-dashboard/node_app
+WORKDIR /root/tls-dashboard
+
+COPY tasks/renew-cert-info /etc/periodic/15min/renew-cert-info
+
+CMD sh -c '/etc/periodic/15min/renew-cert-info && crond -f -d 8'
